@@ -1,0 +1,70 @@
+# ============================
+# Installation files
+# ============================
+*.whl
+Miniconda3-latest-Linux-x86_64.sh
+*.sh.bak
+
+# ============================
+# Model files (keep folders, ignore contents)
+# ============================
+model/*
+!model/.gitkeep
+
+# ============================
+# Output files (keep folders, ignore contents)
+# ============================
+output/*
+!output/.gitkeep
+
+# ============================
+# Input files (keep folders, ignore contents)
+# ============================
+input/*
+!input/.gitkeep
+
+# ============================
+# Python cache & virtual environments
+# ============================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+ENV/
+
+# ============================
+# IDE & Editor files
+# ============================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ============================
+# Gradio cache
+# ============================
+.gradio/
+
+# ============================
+# Jupyter Notebooks
+# ============================
+.ipynb_checkpoints/
+
+# ============================
+# Logs
+# ============================
+*.log
+logs/
+
+# ============================
+# Temporary files
+# ============================
+*.tmp
+*.temp
+*.bak
