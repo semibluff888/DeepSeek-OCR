@@ -16,7 +16,23 @@ import base64
 from io import StringIO, BytesIO
 
 # MODEL_NAME = 'deepseek-ai/DeepSeek-OCR'
-MODEL_NAME = 'model'
+# MODEL_NAME = 'model' # windows加载还行，但是wsl跑会很慢
+# Bo(2026-01-19): WSL(linux)环境下的模型路径. 之前发现wsl加载模型非常慢，问了AI后建议放到linux路径下
+MODEL_NAME = "/home/bo/models/deepseek-ocr"
+
+'''
+问了claude opus 4.5，可以查看antigravity历史agent会话:
+Optimize Model Loading Speed
+或者gemini会话链接:https://gemini.google.com/app/7253b451ec8ce2e5
+The Core Issue: WSL Filesystem Performance
+You are storing your model on a Windows drive: model='/mnt/j/Project/DeepSeek-OCR/model'
+In WSL2 (Windows Subsystem for Linux), there are two types of file systems:
+1. The Native Linux System (e.g., /home/username/): Extremely fast.
+2. The Windows Mounted System (e.g., /mnt/c/, /mnt/j/): Very slow when accessed from Linux.
+Because your model is on the J: drive (Windows), WSL has to use a translation protocol (9P protocol) to read the data. 
+DeepSeek-OCR (running on the vLLM engine shown in your logs) uses memory mapping to load weights. Memory mapping over
+ this cross-OS translation layer is notoriously inefficient, causing the 6GB read to crawl.
+'''
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, trust_remote_code=True)
 # 如果安装了flash-attn，通过设置进行加速推理(wsl的linux已安装flash-attn)
