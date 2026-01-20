@@ -64,7 +64,8 @@ DeepSeek-OCR (running on the vLLM engine shown in your logs) uses memory mapping
 
 # INPUT_PATH = str(PROJECT_ROOT / 'input'/ 'npl.png') # image path
 # INPUT_PATH = str(PROJECT_ROOT / 'input'/ '惠元2024年第七期不良资产证券化信托受托机构报告2026年度第1期（总第16期）.pdf') # pdf path
-INPUT_PATH = str(PROJECT_ROOT / 'input'/ '建欣2025年第十八期不良资产支持证券评级报告及跟踪评级安排（中债资信）.pdf') # pdf path
+# INPUT_PATH = str(PROJECT_ROOT / 'input'/ '建欣2025年第十八期不良资产支持证券评级报告及跟踪评级安排（中债资信）.pdf') # pdf path
+INPUT_PATH = str(PROJECT_ROOT / 'input') # Bo: batch run for all the pdf in the input folder
 OUTPUT_PATH = str(PROJECT_ROOT / 'output')
 
 PROMPT = '<image>\n<|grounding|>Convert the document to markdown.'
